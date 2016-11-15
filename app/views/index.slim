@@ -1,0 +1,64 @@
+h1 Votre lancer
+
+/ em Vous mesurez #{ '1.2f' % y0/100.00}m et vous avez un ballon de basket standard
+/ em "Masse : #{masse}g\n"
+/ printf "Diametre : #{diametre}cm\n"
+/ printf "L'anneau du panier, standard, est à 3,05m de hauteur. Il fait 0,45m de diamètre\n"
+em Vous êtes positionné à #{distance/100.00} m du panier
+
+canvas#myChart
+
+javascript:
+  var myRubyArray = "#{my_abs}";
+  var tmpValue = myRubyArray.toString().replace(/&quot;/g, '');
+  var tmpValue = tmpValue.replace(/[\[\]' /"/ \s]+/g, '');
+  var myJSArray = tmpValue.split(",", #{my_abs.count});
+
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: myJSArray, 
+    datasets: [{
+      label: 'Hauteur',
+      data: #{my_ord},
+        borderColor: '#DE6A1C',
+        borderWidth: 3,
+        pointStrokeColor: '#fff',
+        fill: false,
+        pointBorderColor: '#DE6A1C',
+        pointBackgroundColor: '#99bcd9',
+        steppedLine: true,
+      },{
+      label: 'Panier',
+      data: #{panier},
+        borderColor: '#191919',
+        borderWidth: 3,
+        pointStrokeColor: '#fff',
+        fill: false,
+        pointBorderColor: '#191919',
+        pointBackgroundColor: '#222224',
+        steppedLine: true,      
+      }]
+    },
+    options: {
+      animation: {
+        duration: 1000,
+        easing: 'easeInOutCubic'
+      },
+      legend: {
+        display: false
+      },
+      hover: {
+        mode: 'single'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+      }
+    }
+  });
+

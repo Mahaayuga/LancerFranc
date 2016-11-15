@@ -1,0 +1,14 @@
+html{
+  background-color:#8FA3AD;
+  font-family : "Source Sans Pro";
+}
+
+/**************/
+/*  /graphiques   
+/**************/
+
+canvas {
+  max-width: 98%;
+  margin: .6em auto;
+  max-height: 380px;
+}
