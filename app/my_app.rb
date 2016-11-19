@@ -36,7 +36,9 @@ get '/' do
     end  
   end
 
-  slim :index, locals: { my_abs: mes_x, my_ord: mes_y, panier: goal, distance: dist }
+  slim :index, locals: { my_abs: mes_x, my_ord: mes_y, 
+                         panier: goal, 
+                         distance: dist, taille: y0 }
 
 end
 
