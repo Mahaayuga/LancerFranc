@@ -7,8 +7,26 @@ html{
 /*  /graphiques   
 /**************/
 
+.container{
+  width: 85%;
+  margin: 10px auto;
+}
+
+@media only screen and (min-width: 1000px) {
+  .container{
+    width: 800px;
+    margin: 10px 65px;
+  } 
+}
+
+/**************/
+/*  /graphiques   
+/**************/
+
 canvas {
   max-width: 98%;
+  margin-left: initial;
+  margin-right: initial;
   margin: .6em auto;
   max-height: 380px;
 }

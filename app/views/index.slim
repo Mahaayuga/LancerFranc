@@ -1,15 +1,17 @@
 h1 Votre lancer
 
 em Vous mesurez #{taille/100.00}m et vous avez un ballon de basket standard
-br/
+br
 / em "Masse : #{masse}g\n"
 / printf "Diametre : #{diametre}cm\n"
 em L'anneau du panier, standard, est à 3.05m de hauteur. Il fait 0,45m de diamètre
+br
 em Vous êtes positionné à #{distance/100.00} m du panier
-br/
-br/
+br
+br
 
-canvas#myChart
+div.container
+  canvas#myChart
 
 javascript:
   var myRubyArray = "#{my_abs}";
@@ -56,9 +58,19 @@ javascript:
         mode: 'nearest'
       },
       scales: {
+        xAxes: [{
+          gridLines: {
+            display: false,
+            drawOnChartArea: false
+          }
+        }],
         yAxes: [{
           ticks: {
             beginAtZero: true
+          },
+          gridLines: {
+            display: false,
+            drawOnChartArea: false
           }
         }],
       }
